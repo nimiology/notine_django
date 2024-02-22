@@ -91,7 +91,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'root',
+        'PASSWORD': '5z68ZxBpoXwI2fBqVVqqGT5U',
+        'HOST': 'lhotse.liara.cloud',
+        'PORT': '32327',
+    },
 }
 
 
@@ -159,11 +167,6 @@ REST_FRAMEWORK = {
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': 'reset-password/{uid}/{token}',
     'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
-    'SERIALIZERS': {
-        'current_user': 'users.serializers.MyUserSerializer',
-        'user_create': 'users.serializers.UserCreateSerializer',
-
-    },
 }
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
