@@ -1,3 +1,5 @@
+import random
+
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -37,12 +39,15 @@ COLOR_CHOICES = [
 ]
 
 
-# Create your models here.
+def random_color():
+    return COLOR_CHOICES[random.randint(0, len(COLOR_CHOICES) - 1)]
+
+
 class Note(models.Model):
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.TextField()
     content = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    color = models.CharField(max_length=100, choices=COLOR_CHOICES)
+    color = models.CharField(max_length=100, default=random_color, choices=COLOR_CHOICES)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

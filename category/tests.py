@@ -7,8 +7,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from category.models import Category
 
 
-def get_user_token(email):
-    user = get_user_model().objects.create(email=email, password='1234')
+def get_user_token(username):
+    user = get_user_model().objects.create(username=username, password='1234')
     refresh = RefreshToken.for_user(user)
     return user, f'Bearer {refresh.access_token}'
 

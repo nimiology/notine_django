@@ -50,7 +50,7 @@ urlpatterns = [
 
     # apps
     path('category/', include('category.urls')),
-    # path('note/', include('note.urls')),
+    path('note/', include('note.urls')),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
