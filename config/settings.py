@@ -92,14 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'root',
-        'PASSWORD': '5z68ZxBpoXwI2fBqVVqqGT5U',
-        'HOST': 'lhotse.liara.cloud',
-        'PORT': '32327',
-    },
+
 }
 
 
