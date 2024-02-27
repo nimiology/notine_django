@@ -16,3 +16,6 @@ class CategoryViewSet(ReadOnlyModelViewSet, CreateAPIView):
 
     def get_queryset(self):
         return Category.objects.filter(owner=self.request.user)
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)

@@ -1,9 +1,6 @@
 {
   "platform": "django",
   "app": "notine",
-  "build": {
-    "location": "germany"
-  },
   "django": {
     "pythonVersion": "3.11"
   }
