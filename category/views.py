@@ -1,11 +1,12 @@
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ReadOnlyModelViewSet
+from rest_framework.generics import CreateAPIView
 
 from category.models import Category
 from category.serializers import CategorySerializer
 
 
-class CategoryViewSet(ReadOnlyModelViewSet):
+class CategoryViewSet(ReadOnlyModelViewSet, CreateAPIView):
     serializer_class = CategorySerializer
     permission_classes = [IsAuthenticated]
     filterset_fields = {

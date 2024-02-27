@@ -5,7 +5,6 @@
     "location": "germany"
   },
   "django": {
-    "pythonVersion": "3.11",
-    "mirror": false
+    "pythonVersion": "3.11"
   }
 }
