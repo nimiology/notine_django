@@ -9,7 +9,6 @@ from note.models import Note
 class NoteSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(slug_field='title', queryset=Category.objects.all())
 
-
     class Meta:
         model = Note
         fields = '__all__'

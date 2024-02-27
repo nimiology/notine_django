@@ -15,7 +15,7 @@ class CategoryViewSet(ReadOnlyModelViewSet, CreateAPIView):
     ordering_fields = '__all__'
 
     def get_queryset(self):
-        return Category.objects.filter(owner=self.request.user)
+        return Category.objects.filter(owner=self.request.user).order_by('-id')
 
     def perform_create(self, serializer):
         return serializer.save(owner=self.request.user)

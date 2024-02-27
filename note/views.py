@@ -11,7 +11,7 @@ class NoteViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Note.objects.filter(owner=self.request.user)
+        return Note.objects.filter(owner=self.request.user).order_by('-id')
 
     def perform_create(self, serializer):
         return serializer.save(owner=self.request.user)

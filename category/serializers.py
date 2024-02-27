@@ -12,9 +12,10 @@ class CategorySerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         title = attrs.get('title')
-        owner = attrs.get('owner')
+        owner = self.context['request'].user
         try:
             Category.objects.get(title=title, owner=owner)
             raise ValidationError('Category already exists')
         except Category.DoesNotExist:
             return super().validate(attrs)
+
